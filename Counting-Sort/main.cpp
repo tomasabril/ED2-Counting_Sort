@@ -26,12 +26,20 @@ int main()
     return 0;
 }
 
-void lerDatas(){
+void lerDatas()
+{
     int i;
-    for(i=0; i<1000000; i++){
+    for(i=0; i<1000000; i++) {
         scanf("%d", &datas[i]);
     }
+}
 
+void imprimir()
+{
+    int i;
+    for(i=0; i<1000000; i++) {
+        printf("%d\n", datas[i]);
+    }
 }
 
 
