@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1429886328 source:d:\github\ed2-counting_sort\counting-sort\main.cpp
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+
