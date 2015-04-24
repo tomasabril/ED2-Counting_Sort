@@ -21,7 +21,8 @@ void imprimir();
 int main()
 {
     lerDatas();
-
+    countingSort();
+    imprimir();
 
     return 0;
 }
@@ -42,4 +43,6 @@ void imprimir()
     }
 }
 
+void countingSort(){
 
+}
