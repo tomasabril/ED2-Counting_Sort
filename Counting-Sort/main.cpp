@@ -44,9 +44,12 @@ void lerDatas()
             k = a[i];
         }
     }
-    printf("\n leu todas as datas \n maior numero e: %d", k);
-    c = (int *)malloc(1 + k * sizeof(int));
+    printf("\n leu todas as datas \n o maior numero e: %d", k);
+    k+=8;
+    printf("\nk: %d\n", k);
+    c = (int *)malloc( (k)*sizeof(int) );
     printf("\nalocou vetor\n");
+    printf("\nc[0]= %d\nc[k]= %d\nc[k-1]= %d\n", c[0], c[k], c[k-1]);
 }
 
 void imprimir()
@@ -69,8 +72,10 @@ void countingSort()
         c[a[j]] ++;
     }
     printf("\nfor2");
-    for(i=1; i<=k; i++) {
-        c[i] += c[i-1];
+// ->
+    for(i=1; i<k; i++) {
+        //printf("c[%d]:%d \n", i, c[i]);
+        c[i] = c[i] + c[i-1];
     }
     printf("\nfor3");
     for(j=n-1; j>=0; j--) {
@@ -79,5 +84,3 @@ void countingSort()
     }
     printf("\nfor4");
 }
-
-
