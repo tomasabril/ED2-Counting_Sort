@@ -9,16 +9,16 @@
 #include <time.h>
 
 using namespace std;
-
-//#define TAM 1000000 // Quantas datas ler
-#define TAM 10
+//_________1.000.000
+#define TAM 1000000 // Quantas datas ler
+//#define TAM 3
 
 //variaveis globais
-int a[TAM+1];         // vetor a ser ordenado
-int b[TAM+1];         // vetor ordenado
+int a[TAM];         // vetor a ser ordenado
+int b[TAM];         // vetor ordenado
 int *c;                 // vetor auxiliar de tamanho k que quarda o numero de ocorrencias de elementos i em a
 int n = TAM;        // quantidade de numeros a serem ordenados
-int k=0;                // maior numero da lista
+int k = 0;                // maior numero da lista
 
 //funcoes
 void lerDatas();
@@ -36,21 +36,24 @@ int main()
 
 void lerDatas()
 {
+    printf("comecou\n");
     int i;
-    for(i=1; i<TAM+1; i++) {
+    for(i=0; i<TAM; i++) {
         scanf("%d", &a[i]);
         if(a[i] > k) {
             k = a[i];
         }
     }
+    printf("\n leu todas as datas \n maior numero e: %d", k);
     c = (int *)malloc(1 + k * sizeof(int));
+    printf("\nalocou vetor\n");
 }
 
 void imprimir()
 {
-    printf("\n");
+    printf("\ndatas ordenadas\n");
     int i;
-    for(i=1; i<TAM+1; i++) {
+    for(i=0; i<TAM; i++) {
         printf("%d\n", b[i]);
     }
 }
@@ -58,19 +61,23 @@ void imprimir()
 void countingSort()
 {
     int i,j;
-    for(i=1; i <= k; i++) {
+    for(i=0; i <= k; i++) {
         c[i] = 0;
     }
-    for(j=1; j < n+1; j++) {
-        c[a[j]] = c[a[j]] + 1;
+    printf("\nfor1");
+    for(j=0; j < n; j++) {
+        c[a[j]] ++;
     }
-    for(i=2; i<=k; i++) {
-        c[i] = c[i] + c[i-1];
+    printf("\nfor2");
+    for(i=1; i<=k; i++) {
+        c[i] += c[i-1];
     }
-    for(j=n; j>=1; j--) {
+    printf("\nfor3");
+    for(j=n-1; j>=0; j--) {
         b[c[a[j]]] = a[j];
-        c[a[j]] = c[a[j]] - 1;
+        c[a[j]] --;
     }
+    printf("\nfor4");
 }
 
 
